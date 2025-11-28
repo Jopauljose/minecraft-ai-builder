@@ -1,0 +1,21 @@
+name: AIBuild
+version: 1.0.0
+main: com.aibuild.AIBuildPlugin
+api-version: '1.21'
+description: AI-driven procedural building engine for Minecraft.
+authors:
+  - Your Name
+commands:
+  aibuild:
+    description: Generate a structure based on a natural language prompt.
+    usage: /aibuild <prompt>
+  aiundo:
+    description: Undo the last AI-generated structure.
+    usage: /aiundo
+permissions:
+  aibuild.use:
+    description: Allows the player to use the /aibuild command.
+    default: true
+  aiundo.use:
+    description: Allows the player to use the /aiundo command.
+    default: true

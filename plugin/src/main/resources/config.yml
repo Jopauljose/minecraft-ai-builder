@@ -1,0 +1,10 @@
+# AI Build Plugin Configuration
+
+# Backend server URL
+backend-url: "http://localhost:3000"
+
+# Maximum structure dimension (X and Z)
+max-dimension: 32
+
+# Maximum structure height (Y)
+max-height: 128

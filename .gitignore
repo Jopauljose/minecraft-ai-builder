@@ -1,0 +1,33 @@
+# Node.js (Backend)
+node_modules/
+npm-debug.log*
+.env
+
+# Java/Maven (Plugin)
+target/
+*.class
+*.jar
+*.war
+*.ear
+dependency-reduced-pom.xml
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build outputs
+dist/
+build/
