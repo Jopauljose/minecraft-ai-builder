@@ -20,7 +20,7 @@ public class BackendClient {
         this.gson = new Gson();
     }
 
-    public JsonObject generateStructure(String prompt, int maxDim) {
+    public JsonObject generateStructure(String prompt, int width, int depth, int height) {
         try {
             URL url = new URL(backendUrl + "/generate");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -30,7 +30,9 @@ public class BackendClient {
 
             JsonObject requestBody = new JsonObject();
             requestBody.addProperty("prompt", prompt);
-            requestBody.addProperty("max_dim", maxDim);
+            requestBody.addProperty("width", width);
+            requestBody.addProperty("depth", depth);
+            requestBody.addProperty("height", height);
 
             try (OutputStream os = connection.getOutputStream()) {
                 os.write(gson.toJson(requestBody).getBytes());

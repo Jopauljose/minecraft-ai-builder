@@ -2,6 +2,7 @@ package com.aibuild;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import com.aibuild.commands.AIBuildCommand;
+import com.aibuild.commands.AIHelpCommand;
 import com.aibuild.commands.AIUndoCommand;
 import com.aibuild.models.UndoBuffer;
 import com.aibuild.services.BackendClient;
@@ -18,14 +19,17 @@ public class AIBuildPlugin extends JavaPlugin {
         saveDefaultConfig();
         
         String backendUrl = getConfig().getString("backend-url", "http://localhost:3000");
-        int maxDim = getConfig().getInt("max-dimension", 32);
+        int defaultWidth = getConfig().getInt("default-width", 16);
+        int defaultDepth = getConfig().getInt("default-depth", 16);
+        int defaultHeight = getConfig().getInt("default-height", 16);
         
         this.undoBuffer = new UndoBuffer();
         this.backendClient = new BackendClient(backendUrl);
         this.structureBuilder = new StructureBuilder(this, undoBuffer);
         
-        getCommand("aibuild").setExecutor(new AIBuildCommand(this, backendClient, structureBuilder, maxDim));
+        getCommand("aibuild").setExecutor(new AIBuildCommand(this, backendClient, structureBuilder, defaultWidth, defaultDepth, defaultHeight));
         getCommand("aiundo").setExecutor(new AIUndoCommand(this, undoBuffer));
+        getCommand("aihelp").setExecutor(new AIHelpCommand());
         
         getLogger().info("AIBuildPlugin has been enabled.");
         getLogger().info("Backend URL: " + backendUrl);

@@ -8,10 +8,13 @@ authors:
 commands:
   aibuild:
     description: Generate a structure based on a natural language prompt.
-    usage: /aibuild <prompt>
+    usage: /aibuild <prompt> [,width,depth,height]
   aiundo:
     description: Undo the last AI-generated structure.
     usage: /aiundo
+  aihelp:
+    description: Show help for AI Build commands.
+    usage: /aihelp
 permissions:
   aibuild.use:
     description: Allows the player to use the /aibuild command.

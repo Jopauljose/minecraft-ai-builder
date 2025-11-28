@@ -3,8 +3,13 @@
 # Backend server URL
 backend-url: "http://localhost:3000"
 
-# Maximum structure dimension (X and Z)
-max-dimension: 32
+# Default structure dimensions (used when not specified in command)
+# Command: /aibuild <prompt> [,width,depth,height]
+default-width: 16
+default-depth: 16
+default-height: 16
 
-# Maximum structure height (Y)
+# Maximum allowed dimensions (hard limits)
+max-width: 64
+max-depth: 64
 max-height: 128
