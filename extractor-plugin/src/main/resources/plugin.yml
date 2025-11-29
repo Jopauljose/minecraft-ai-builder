@@ -1,0 +1,37 @@
+name: StructureExtractor
+version: 1.0.0
+main: com.aiextractor.StructureExtractorPlugin
+api-version: '1.21'
+description: Extracts Minecraft structures for AI training data generation
+authors:
+  - AIBuild Team
+softdepend:
+  - WorldEdit
+
+commands:
+  scan:
+    description: Scan world for structures
+    usage: /scan <start|stop|status>
+  capture:
+    description: Capture a structure
+    usage: /capture <auto|selection|block> [name]
+  extractor:
+    description: Extractor settings and info
+    usage: /extractor <help|stats|config>
+  build:
+    description: Build a structure from exported JSON file
+    usage: /build <list|filename|undo>
+
+permissions:
+  extractor.scan:
+    description: Allows scanning for structures
+    default: op
+  extractor.capture:
+    description: Allows capturing structures
+    default: op
+  extractor.build:
+    description: Allows building structures from exports
+    default: op
+  extractor.admin:
+    description: Admin commands
+    default: op

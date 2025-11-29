@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 
 public class BackendClient {
@@ -22,7 +23,7 @@ public class BackendClient {
 
     public JsonObject generateStructure(String prompt, int width, int depth, int height) {
         try {
-            URL url = new URL(backendUrl + "/generate");
+            URL url = URI.create(backendUrl + "/generate").toURL();
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");

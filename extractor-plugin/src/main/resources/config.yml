@@ -1,0 +1,143 @@
+# Structure Extractor Plugin Configuration
+
+# Export settings
+export:
+  # Base directory for exported structures (relative to plugin folder)
+  directory: "exports"
+  # Pretty print JSON (easier to read but larger files)
+  pretty-json: true
+  # Include air blocks in export
+  include-air: false
+
+# Scanner settings
+scanner:
+  # Chunks to scan per tick (lower = less lag)
+  chunks-per-tick: 2
+  # Initial scan radius in chunks (around spawn or player)
+  initial-radius: 8
+  # Whether to unload chunks after scanning them
+  unload-chunks: true
+  # Minimum structure size (blocks) to be detected
+  min-structure-size: 20
+  # Maximum structure size (blocks) - prevents huge exports
+  max-structure-size: 50000
+  # Minimum bounding box dimensions
+  min-dimensions:
+    x: 3
+    y: 3
+    z: 3
+  # Maximum bounding box dimensions
+  max-dimensions:
+    x: 128
+    y: 128
+    z: 128
+
+# Structure detection settings
+detection:
+  # Flood fill max iterations (prevents infinite loops)
+  max-flood-iterations: 100000
+  # How far to search for connected blocks
+  search-radius: 64
+  # Blocks considered "natural" (will be ignored/trimmed)
+  # The detector also automatically excludes leaves, logs, flowers, etc.
+  natural-blocks:
+    - minecraft:air
+    - minecraft:grass_block
+    - minecraft:dirt
+    - minecraft:rooted_dirt
+    - minecraft:stone
+    - minecraft:deepslate
+    - minecraft:tuff
+    - minecraft:granite
+    - minecraft:diorite
+    - minecraft:andesite
+    - minecraft:calcite
+    - minecraft:dripstone_block
+    - minecraft:gravel
+    - minecraft:sand
+    - minecraft:red_sand
+    - minecraft:sandstone
+    - minecraft:red_sandstone
+    - minecraft:water
+    - minecraft:lava
+    - minecraft:bedrock
+    - minecraft:grass
+    - minecraft:short_grass
+    - minecraft:tall_grass
+    - minecraft:fern
+    - minecraft:large_fern
+    - minecraft:dead_bush
+    - minecraft:seagrass
+    - minecraft:tall_seagrass
+    - minecraft:kelp
+    - minecraft:kelp_plant
+    - minecraft:cave_air
+    - minecraft:void_air
+    - minecraft:snow
+    - minecraft:snow_block
+    - minecraft:powder_snow
+    - minecraft:ice
+    - minecraft:packed_ice
+    - minecraft:blue_ice
+    - minecraft:clay
+    - minecraft:terracotta
+    - minecraft:coarse_dirt
+    - minecraft:mud
+    - minecraft:muddy_mangrove_roots
+    - minecraft:podzol
+    - minecraft:mycelium
+    - minecraft:netherrack
+    - minecraft:soul_sand
+    - minecraft:soul_soil
+    - minecraft:basalt
+    - minecraft:smooth_basalt
+    - minecraft:blackstone
+    - minecraft:end_stone
+
+  # Blocks that indicate a structure (triggers detection)
+  structure-indicator-blocks:
+    - minecraft:oak_planks
+    - minecraft:spruce_planks
+    - minecraft:birch_planks
+    - minecraft:jungle_planks
+    - minecraft:acacia_planks
+    - minecraft:dark_oak_planks
+    - minecraft:mangrove_planks
+    - minecraft:cherry_planks
+    - minecraft:bamboo_planks
+    - minecraft:crimson_planks
+    - minecraft:warped_planks
+    - minecraft:stone_bricks
+    - minecraft:mossy_stone_bricks
+    - minecraft:cracked_stone_bricks
+    - minecraft:chiseled_stone_bricks
+    - minecraft:cobblestone
+    - minecraft:mossy_cobblestone
+    - minecraft:bricks
+    - minecraft:nether_bricks
+    - minecraft:red_nether_bricks
+    - minecraft:glass
+    - minecraft:glass_pane
+    - minecraft:bookshelf
+    - minecraft:crafting_table
+    - minecraft:furnace
+    - minecraft:chest
+    - minecraft:ladder
+    - minecraft:torch
+    - minecraft:lantern
+    - minecraft:oak_door
+    - minecraft:spruce_door
+    - minecraft:iron_door
+    - minecraft:oak_stairs
+    - minecraft:cobblestone_stairs
+    - minecraft:stone_brick_stairs
+    - minecraft:quartz_block
+    - minecraft:smooth_quartz
+    - minecraft:polished_granite
+    - minecraft:polished_diorite
+    - minecraft:polished_andesite
+    - minecraft:cut_sandstone
+    - minecraft:smooth_sandstone
+    - minecraft:iron_block
+    - minecraft:gold_block
+    - minecraft:diamond_block
