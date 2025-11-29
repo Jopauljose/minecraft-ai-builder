@@ -4,6 +4,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -27,17 +28,23 @@ public class UndoBuffer {
     }
     
     /**
-     * Represents a single undo operation containing multiple block changes
+     * Represents a single block's state including material and block data (orientation, etc.)
      */
     public static class BlockState {
         private final Location location;
         private final Material material;
-        private final byte data;
+        private final BlockData blockData;
         
         public BlockState(Location location, Material material) {
             this.location = location.clone();
             this.material = material;
-            this.data = 0;
+            this.blockData = null;
+        }
+        
+        public BlockState(Location location, Material material, BlockData blockData) {
+            this.location = location.clone();
+            this.material = material;
+            this.blockData = blockData != null ? blockData.clone() : null;
         }
         
         public Location getLocation() {
@@ -46,6 +53,10 @@ public class UndoBuffer {
         
         public Material getMaterial() {
             return material;
+        }
+        
+        public BlockData getBlockData() {
+            return blockData;
         }
     }
     
@@ -128,7 +139,13 @@ public class UndoBuffer {
             World world = loc.getWorld();
             if (world != null) {
                 Block block = world.getBlockAt(loc);
-                block.setType(state.getMaterial(), false);
+                
+                // Restore with block data if available (preserves orientation)
+                if (state.getBlockData() != null) {
+                    block.setBlockData(state.getBlockData(), false);
+                } else {
+                    block.setType(state.getMaterial(), false);
+                }
                 count++;
             }
         }
